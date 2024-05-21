@@ -2,22 +2,22 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: nodejs-app
+  name: nodejs-app2
   namespace: default
   labels:
-    app: nodejs-app
+    app: nodejs-app2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodejs-app
+      app: nodejs-app2
   template:
     metadata:
       labels:
-        app: nodejs-app
+        app: nodejs-app2
     spec:
       containers:
-      - name: nodejs-app
+      - name: nodejs-app2
         image: "rushidockerhub1881/show2:latest"
         ports:
           - containerPort: 3000
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: my-service2
 spec:
   selector:
-    app: nodejs-app
+    app: nodejs-app2
   type: LoadBalancer
   ports:
     - protocol: TCP
